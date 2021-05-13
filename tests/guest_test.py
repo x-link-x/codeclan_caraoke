@@ -1,11 +1,13 @@
 import unittest
 from src.guest import Guest
 from src.room import Room
+from src.song import Song
 
 class TestGuest(unittest.TestCase):
 
     def setUp(self):
-        self.guest = Guest("Mario", "Castle Theme", 100.00)
+        self.song = Song("Castle Theme")
+        self.guest = Guest("Mario", self.song.title, 100.00)
         self.room = Room("Nintendo")
 
     def test_guest_has_name(self):

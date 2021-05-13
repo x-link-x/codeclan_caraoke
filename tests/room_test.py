@@ -1,16 +1,25 @@
 import unittest
 from src.room import Room
 from src.guest import Guest
+from src.song import Song
 
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
         self.room = Room("Nintendo")
-        self.guest_1 = Guest("Mario", "Castle Theme", 100.00)
-        self.guest_2 = Guest("Luigi", "Dolphin Shoals", 30.00)
-        self.guest_3 = Guest("Toad", "Gusty Garden Galaxy", 5.00)
-        self.guest_4 = Guest("Peach", "Rosalina in the Observatory", 70.00)
-        self.guest_5 = Guest("Bowser", "A Boss Approaches", 40.00)
+
+        self.song_1 = Song("Castle Theme")
+        self.song_2 = Song("Dolphin Shoals")
+        self.song_3 = Song("Gusty Garden Galaxy")
+        self.song_4 = Song("Rosalina in the Observatory")
+        self.song_5 = Song("A Boss Approaches")
+
+        self.guest_1 = Guest("Mario", self.song_1.title, 100.00)
+        self.guest_2 = Guest("Luigi", self.song_2.title, 30.00)
+        self.guest_3 = Guest("Toad", self.song_3.title, 5.00)
+        self.guest_4 = Guest("Peach", self.song_4.title, 70.00)
+        self.guest_5 = Guest("Bowser", self.song_5.title, 40.00)
+        
 
     def test_room_name_is_room_1(self):
         self.assertEqual("Nintendo", self.room.name)
