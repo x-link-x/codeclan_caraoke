@@ -25,6 +25,10 @@ class TestRoom(unittest.TestCase):
         self.room.check_out_guest(self.guest_1)
         self.assertEqual({"Luigi": "Dolphin Shoals"}, self.room.guests)
 
+    def test_room_can_add_songs(self):
+        self.room.add_song_to_room("Dolphin Shoals")
+        self.assertEqual(["Dolphin Shoals"], self.room.songs)
+
 
     
 
