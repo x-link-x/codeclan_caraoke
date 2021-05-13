@@ -6,7 +6,10 @@ class Room:
         self.songs = []
 
     def check_in_guest(self, guest):
-        self.guests[guest.name] = guest.favourite_song
+        if len(self.guests) < 4:
+            self.guests[guest.name] = guest.favourite_song
+        else:
+            return "Sorry, the room is full"
 
     def check_out_guest(self, guest):
         self.guests.pop(guest.name)
