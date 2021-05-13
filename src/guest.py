@@ -6,7 +6,11 @@ class Guest:
         self.wallet = wallet
 
 
+    def can_afford_entry_fee(self, room):
+        return self.wallet >= room.entry_fee
+
     def pay_entry_fee(self, room):
-        self.wallet -= room.entry_fee
-        room.tab += room.entry_fee
+        if self.can_afford_entry_fee(room):
+            self.wallet -= room.entry_fee
+            room.tab += room.entry_fee
         

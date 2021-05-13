@@ -51,6 +51,10 @@ class TestRoom(unittest.TestCase):
         self.room.check_in_guest(self.guest_1)
         self.assertEqual(10.00, self.room.tab)
 
+    def test_guest_cannot_enter_if_no_entry_fee(self):
+        self.room.check_in_guest(self.guest_3)
+        self.assertEqual(0.00, self.room.tab)
+
 
 
     
