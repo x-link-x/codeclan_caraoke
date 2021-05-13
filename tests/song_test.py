@@ -4,4 +4,9 @@ from src.song import Song
 class TestSong(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.song = Song("Castle Theme")
+
+
+    def test_song_has_title(self):
+        self.assertEqual("Castle Theme", self.song.title)
+        
