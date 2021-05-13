@@ -5,7 +5,7 @@ from src.guest import Guest
 class TestRoom(unittest.TestCase):
 
     def setUp(self):
-        self.room = Room("Room 1")
+        self.room = Room("Nintendo")
         self.guest_1 = Guest("Mario", "Castle Theme", 100.00)
         self.guest_2 = Guest("Luigi", "Dolphin Shoals", 30.00)
         self.guest_3 = Guest("Toad", "Gusty Garden Galaxy", 5.00)
@@ -13,7 +13,7 @@ class TestRoom(unittest.TestCase):
         self.guest_5 = Guest("Bowser", "A Boss Approaches", 40.00)
 
     def test_room_name_is_room_1(self):
-        self.assertEqual("Room 1", self.room.name)
+        self.assertEqual("Nintendo", self.room.name)
 
     def test_room_has_dictionary_of_guests(self):
         self.assertEqual({}, self.room.guests)

@@ -4,6 +4,7 @@ class Room:
         self.name = name
         self.guests = {}
         self.songs = []
+        self.entry_fee = 10.00
 
     def check_in_guest(self, guest):
         if len(self.guests) < 4:
