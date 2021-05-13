@@ -14,11 +14,11 @@ class TestRoom(unittest.TestCase):
         self.song_4 = Song("Rosalina in the Observatory")
         self.song_5 = Song("A Boss Approaches")
 
-        self.guest_1 = Guest("Mario", self.song_1.title, 100.00)
-        self.guest_2 = Guest("Luigi", self.song_2.title, 30.00)
-        self.guest_3 = Guest("Toad", self.song_3.title, 5.00)
-        self.guest_4 = Guest("Peach", self.song_4.title, 70.00)
-        self.guest_5 = Guest("Bowser", self.song_5.title, 40.00)
+        self.guest_1 = Guest("Mario", self.song_1, 100.00)
+        self.guest_2 = Guest("Luigi", self.song_2, 30.00)
+        self.guest_3 = Guest("Toad", self.song_3, 5.00)
+        self.guest_4 = Guest("Peach", self.song_4, 70.00)
+        self.guest_5 = Guest("Bowser", self.song_5, 40.00)
         
 
     def test_room_name_is_room_1(self):
@@ -29,7 +29,7 @@ class TestRoom(unittest.TestCase):
 
     def test_room_can_check_in_guests(self):
         self.room.check_in_guest(self.guest_1)
-        self.assertEqual({"Mario": "Castle Theme"}, self.room.guests)
+        self.assertEqual({self.guest_1: self.song_1}, self.room.guests)
 
     def test_checkin_does_not_exceed_maximum_capacity(self):
         self.room.check_in_guest(self.guest_1)
@@ -50,7 +50,7 @@ class TestRoom(unittest.TestCase):
         self.room.check_in_guest(self.guest_1)
         self.room.check_in_guest(self.guest_2)
         self.room.check_out_guest(self.guest_1)
-        self.assertEqual({"Luigi": "Dolphin Shoals"}, self.room.guests)
+        self.assertEqual({self.guest_2: self.song_2}, self.room.guests)
 
     def test_room_can_add_songs(self):
         self.room.add_song_to_room(self.song_2)
@@ -64,6 +64,10 @@ class TestRoom(unittest.TestCase):
         self.room.check_in_guest(self.guest_3)
         self.assertEqual(0.00, self.room.tab)
 
+    def test_guest_cheers_if_favourite_song_in_playlist(self):
+        self.room.add_song_to_room(self.song_4)
+        self.room.check_in_guest(self.guest_4)
+        self.assertEqual("Woop!", self.room.guest_cheers(self.guest_4))
 
 
     

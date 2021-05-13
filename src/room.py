@@ -9,13 +9,20 @@ class Room:
 
     def check_in_guest(self, guest):
         if len(self.guests) < 4:
-            self.guests[guest.name] = guest.favourite_song
+            self.guests[guest] = guest.favourite_song
             guest.pay_entry_fee(self)
         else:
             return "Sorry, the room is full"
 
     def check_out_guest(self, guest):
-        self.guests.pop(guest.name)
+        self.guests.pop(guest)
 
     def add_song_to_room(self, song):
         self.playlist.append(song)
+
+    def guest_cheers(self, guest):
+        for song in self.guests.values():
+            if song in self.playlist:
+                return guest.cheer()
+            
+
