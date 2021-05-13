@@ -7,14 +7,14 @@ class TestGuest(unittest.TestCase):
 
     def setUp(self):
         self.song = Song("Castle Theme")
-        self.guest = Guest("Mario", self.song.title, 100.00)
+        self.guest = Guest("Mario", self.song, 100.00)
         self.room = Room("Nintendo")
 
     def test_guest_has_name(self):
         self.assertEqual("Mario", self.guest.name)
 
     def test_guest_has_favourite_song(self):
-        self.assertEqual("Castle Theme", self.guest.favourite_song)
+        self.assertEqual(self.song, self.guest.favourite_song)
 
     def test_guest_has_wallet(self):
         self.assertEqual(100.00, self.guest.wallet)

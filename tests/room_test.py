@@ -19,7 +19,6 @@ class TestRoom(unittest.TestCase):
         self.guest_3 = Guest("Toad", self.song_3, 5.00)
         self.guest_4 = Guest("Peach", self.song_4, 70.00)
         self.guest_5 = Guest("Bowser", self.song_5, 40.00)
-        
 
     def test_room_name_is_room_1(self):
         self.assertEqual("Nintendo", self.room.name)
@@ -69,7 +68,11 @@ class TestRoom(unittest.TestCase):
         self.room.check_in_guest(self.guest_4)
         self.assertEqual("Woop!", self.room.guest_cheers(self.guest_4))
 
-
-    
+    def test_guest_can_sing_song(self):
+        self.room.add_song_to_room(self.song_2)
+        self.room.check_in_guest(self.guest_2)
+        self.room.guest_sings_a_song(self.song_2, self.guest_2)
+        self.assertEqual("Singing...", self.guest_2.sing(self.song_2))
+        self.assertEqual([], self.room.playlist)
 
     

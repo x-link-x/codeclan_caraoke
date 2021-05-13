@@ -24,5 +24,8 @@ class Room:
         for song in self.guests.values():
             if song in self.playlist:
                 return guest.cheer()
-            
-
+        
+    def guest_sings_a_song(self, song, guest):
+        self.playlist.remove(song)
+        guest.sing(song)
+        

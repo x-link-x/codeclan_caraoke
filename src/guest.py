@@ -5,7 +5,6 @@ class Guest:
         self.favourite_song = favourite_song
         self.wallet = wallet
 
-
     def can_afford_entry_fee(self, room):
         return self.wallet >= room.entry_fee
 
@@ -16,4 +15,7 @@ class Guest:
 
     def cheer(self):
         return "Woop!"
+
+    def sing(self, song):
+        return "Singing..."
         
