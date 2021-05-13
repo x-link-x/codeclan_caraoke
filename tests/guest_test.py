@@ -22,3 +22,6 @@ class TestGuest(unittest.TestCase):
     def test_pay_entry_fee_removes_money_from_wallet(self):
         self.guest.pay_entry_fee(self.room)
         self.assertEqual(90.00, self.guest.wallet)
+
+    def test_guest_can_cheer(self):
+        self.assertEqual("Woop!", self.guest.cheer())

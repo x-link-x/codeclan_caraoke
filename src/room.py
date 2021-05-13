@@ -3,7 +3,7 @@ class Room:
     def __init__(self, name):
         self.name = name
         self.guests = {}
-        self.songs = []
+        self.playlist = []
         self.entry_fee = 10.00
         self.tab = 0.00
 
@@ -18,4 +18,4 @@ class Room:
         self.guests.pop(guest.name)
 
     def add_song_to_room(self, song):
-        self.songs.append(song)
+        self.playlist.append(song)

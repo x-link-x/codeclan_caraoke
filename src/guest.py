@@ -13,4 +13,7 @@ class Guest:
         if self.can_afford_entry_fee(room):
             self.wallet -= room.entry_fee
             room.tab += room.entry_fee
+
+    def cheer(self):
+        return "Woop!"
         

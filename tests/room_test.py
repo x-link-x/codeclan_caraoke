@@ -53,8 +53,8 @@ class TestRoom(unittest.TestCase):
         self.assertEqual({"Luigi": "Dolphin Shoals"}, self.room.guests)
 
     def test_room_can_add_songs(self):
-        self.room.add_song_to_room("Dolphin Shoals")
-        self.assertEqual(["Dolphin Shoals"], self.room.songs)
+        self.room.add_song_to_room(self.song_2)
+        self.assertEqual([self.song_2], self.room.playlist)
 
     def test_room_tab_increases_when_guest_is_checked_in(self):
         self.room.check_in_guest(self.guest_1)
