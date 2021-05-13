@@ -25,4 +25,7 @@ class TestRoom(unittest.TestCase):
         self.room.check_out_guest(self.guest_1)
         self.assertEqual({"Luigi": "Dolphin Shoals"}, self.room.guests)
 
+
+    
+
     
